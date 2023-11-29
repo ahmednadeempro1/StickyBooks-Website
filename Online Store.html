@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Books Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            padding: 1em;
+        }
+
+        .offer {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 1em;
+            margin: 1em 0;
+        }
+
+        .price {
+            margin-top: 1em;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 0.5em;
+            border: none;
+            cursor: pointer;
+        }
+
+        input {
+            width: 40px;
+            padding: 0.5em;
+            margin-right: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Sticky Books Store!</h1>
+        <p>Your one-stop destination for e-books, stickers, offline books, and more.</p>
+    </header>
+
+    <section>
+        <div class="offer" id="eBooks">
+            <h2>E-Books</h2>
+            <p>Explore our collection of digital books.</p>
+            <div class="price" id="eBooksPrice">Price: 1.50 AED</div>
+            <label for="eBooksQuantity">Quantity:</label>
+            <input type="number" id="eBooksQuantity" value="1" min="1">
+            <button onclick="addToCart('E-Books', 1.50, 'eBooksQuantity')">Add to Cart</button>
+        </div>
+
+        <div class="offer" id="stickers">
+            <h2>Stickers</h2>
+            <p>Express yourself with our vibrant stickers.</p>
+            <div class="price" id="stickersPrice">Price: 0.50 AED</div>
+            <label for="stickersQuantity">Quantity:</label>
+            <input type="number" id="stickersQuantity" value="1" min="1">
+            <button onclick="addToCart('Stickers', 0.50, 'stickersQuantity')">Add to Cart</button>
+        </div>
+
+        <div class="offer" id="offlineBooks">
+            <h2>Books (Offline)</h2>
+            <p>Enjoy our collection of offline books for only 0.55 AED per day!</p>
+            <div class="price" id="offlineBooksPrice">Price: 0.55 AED per day</div>
+            <label for="offlineBooksQuantity">Quantity:</label>
+            <input type="number" id="offlineBooksQuantity" value="1" min="1">
+            <button onclick="addToCart('Offline Books', 0.55, 'offlineBooksQuantity')">Add to Cart</button>
+        </div>
+
+        <div class="offer" id="googleDocs">
+            <h2>Google Docs</h2>
+            <p>Create and edit documents with Google Docs for 0.50 AED per page.</p>
+            <div class="price" id="googleDocsPrice">Price: 0.50 AED per page</div>
+            <label for="googleDocsQuantity">Quantity:</label>
+            <input type="number" id="googleDocsQuantity" value="1" min="1">
+            <button onclick="addToCart('Google Docs', 0.50, 'googleDocsQuantity')">Add to Cart</button>
+        </div>
+
+        <div class="offer" id="powerPoint">
+            <h2>PowerPoint Presentation</h2>
+            <p>Create engaging presentations for 1 AED per page.</p>
+            <div class="price" id="powerPointPrice">Price: 1 AED per page</div>
+            <label for="powerPointQuantity">Quantity:</label>
+            <input type="number" id="powerPointQuantity" value="1" min="1">
+            <button onclick="addToCart('PowerPoint Presentation', 1.00, 'powerPointQuantity')">Add to Cart</button>
+        </div>
+
+        <div class="offer" id="googleSlides">
+            <h2>Google Slides</h2>
+            <p>Create beautiful slideshows for 1 AED per slide.</p>
+            <div class="price" id="googleSlidesPrice">Price: 1 AED per slide</div>
+            <label for="googleSlidesQuantity">Quantity:</label>
+            <input type="number" id="googleSlidesQuantity" value="1" min="1">
+            <button onclick="addToCart('Google Slides', 1.00, 'googleSlidesQuantity')">Add to Cart</button>
+        </div>
+
+        <div class="offer" id="magazines">
+            <h2>Magazines</h2>
+            <p>Read our digital magazines for 4 AED (depends on the word count).</p>
+            <div class="price" id="magazinesPrice">Price: 4 AED (depends on word count)</div>
+            <label for="magazinesQuantity">Quantity:</label>
+            <input type="number" id="magazinesQuantity" value="1" min="1">
+            <button onclick="addToCart('Magazines', 4.00, 'magazinesQuantity')">Add to Cart</button>
+        </div>
+
+    </section>
+
+    <section>
+        <h2>Prices:</h2>
+        <p id="cartTotal">Cart Total: 0 AED</p>
+    </section>
+
+    <script>
+        let cartTotal = 0;
+
+        function addToCart(item, price, quantityId) {
+            const quantity = parseInt(document.getElementById(quantityId).value);
+            const total = price * quantity;
+            cartTotal += total;
+            document.getElementById('cartTotal').innerText = `Cart Total: ${cartTotal.toFixed(2)} AED`;
+        }
+    </script>
+
+</body>
+</html>
